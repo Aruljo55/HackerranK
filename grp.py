@@ -1,5 +1,4 @@
 import re
-
 def find_repeating_character(s):
     # Search for a repeating alphanumeric character
     match = re.search(r'([a-zA-Z0-9])\1', s)
