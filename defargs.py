@@ -22,16 +22,13 @@ def print_from_stream(n, stream=None):
     for _ in range(n):
         print(stream.get_next())
 
-# Sample Input
-queries = [
-    ('odd', 2),
-    ('even', 3),
-    ('odd', 5)
-]
-
-# Process each query
-for stream_name, n in queries:
-    if stream_name == 'odd':
-        print_from_stream(n, OddStream())  # Use OddStream for 'odd' queries
-    elif stream_name == 'even':
-        print_from_stream(n)  # Default stream is EvenStream
+# Code to read input and execute the function based on queries
+if __name__ == "__main__":
+    t = int(input())  # Number of test cases
+    for _ in range(t):
+        stream_name, n = input().split()
+        n = int(n)
+        if stream_name == 'odd':
+            print_from_stream(n, OddStream())  # Use OddStream for 'odd' queries
+        elif stream_name == 'even':
+            print_from_stream(n)  # Default stream is EvenStream
