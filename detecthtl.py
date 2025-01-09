@@ -26,3 +26,4 @@ html_snippet = "\n".join(input() for _ in range(n))
 # Create a parser instance and feed the HTML snippet
 parser = MyHTMLParser()
 parser.feed(html_snippet)
+
