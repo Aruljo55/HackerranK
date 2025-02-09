@@ -1,0 +1,10 @@
+def average(array):
+    # your code goes here
+    lst=list(set(array))
+    avg_height=sum(lst)/len(lst)
+    return avg_height
+if __name__ == '__main__':
+    n = int(input())
+    arr = list(map(int, input().split()))
+    result = average(arr)
+    print(result)
