@@ -1,0 +1,21 @@
+WITH CountryInvoice AS (
+    SELECT
+        co.country_name,
+        COUNT(i.id) AS total_invoices,
+        AVG(i.total_price) AS average_invoice_amount
+    FROM invoice i
+    JOIN customer cu ON i.customer_id = cu.id
+    JOIN city ci ON cu.city_id = ci.id
+    JOIN country co ON ci.country_id = co.id
+    GROUP BY co.country_name
+),
+OverallAverage AS (
+    SELECT AVG(total_price) AS overall_avg FROM invoice
+)
+SELECT
+    ci.country_name,
+    ci.total_invoices,
+    ROUND(ci.average_invoice_amount, 6) AS average_invoice_amount
+FROM CountryInvoice ci
+JOIN OverallAverage oa ON ci.average_invoice_amount > oa.overall_avg;
+
