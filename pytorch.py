@@ -26,4 +26,4 @@ class Solution:
     
     def get_loss(self, prediction: TensorType[float], target: TensorType[float]) -> TensorType[float]:
         # torch.nn.functional.mse_loss() will be useful - check out the documentation
-        return torch.nn.functional.mse_loss(prediction, target)
+        return torch.nn.functional.mse_loss(prediction, target)b
