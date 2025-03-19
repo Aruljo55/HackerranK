@@ -1,0 +1,53 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'countingValleys' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts following parameters:
+#  1. INTEGER steps
+#  2. STRING path
+#
+
+def countingValleys(steps, path):
+    # Initialize variables to track altitude and valley count
+    altitude = 0
+    valley_count = 0
+    
+    # Iterate through each step in the path
+    for step in path:
+        # Track the previous altitude before taking this step
+        prev_altitude = altitude
+        
+        # Update altitude based on step direction
+        if step == 'U':
+            altitude += 1
+        else:  # step == 'D'
+            altitude -= 1
+        
+        # Check if we've just exited a valley
+        # This happens when we were below sea level (altitude < 0)
+        # and we've just returned to sea level (altitude == 0)
+        if prev_altitude < 0 and altitude == 0:
+            valley_count += 1
+    
+    return valley_count
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    steps = int(input().strip())
+
+    path = input()
+
+    result = countingValleys(steps, path)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
