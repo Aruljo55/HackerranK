@@ -33,3 +33,4 @@ class Solution:
                     ways[neighbor] = (ways[neighbor] + ways[node]) % MOD
         
         return ways[n - 1]
+c
