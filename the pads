@@ -1,0 +1,10 @@
+-- Part 1: Print names with their occupation's first letter
+SELECT CONCAT(Name, '(', LEFT(Occupation, 1), ')')
+FROM OCCUPATIONS
+ORDER BY Name;
+
+-- Part 2: Count each occupation
+SELECT CONCAT('There are a total of ', COUNT(*), ' ', LOWER(Occupation), 's.')
+FROM OCCUPATIONS
+GROUP BY Occupation
+ORDER BY COUNT(*), Occupation;
